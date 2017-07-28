@@ -29,9 +29,8 @@ drone2.fly();
 
 Drone.getCompany();
 
-*/
 
-/*
+
 * Using Getters and Setters
 *
 *
@@ -52,9 +51,8 @@ let drone = new Drone('A123');
 drone.id = "N345";
 console.log(drone.id);
 
-*/
 
-/*
+
 * Inheritance and Code organisation
 *
 *
@@ -82,9 +80,7 @@ let c = new Car('B456');
 
 console.log(c.licenseNum);
 
-*/
 
-/*
 Properties in classes and derived classes
 
 
@@ -110,9 +106,8 @@ class Car extends Vehicle {
 let c = new Car();
 console.log(c.gpsEnabled);
 
-*/
 
-/*
+
 Methods with inheritance now!
 
 
@@ -143,12 +138,14 @@ c.getCompanyName();
 
 import {Car} from "./classes/car.js"
 import {Drone} from "./classes/drone.js"
+import {fleet} from "./fleet-data.js"
+import {FleetDataServices} from "./services/fleet-data-service.js"
 
+let dataService = new FleetDataServices();
+dataService.loadData(fleet);
 
-let c = new Car();
-let d = new Drone();
-
-console.log(c);
-console.log(d);
+console.log(dataService.cars);
+// console.log(fleet);
+// console.log(d);
 
 
