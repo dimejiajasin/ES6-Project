@@ -1,2 +1,3 @@
-# Stores
-New Store app
+# ES6 Object-Oriented Programming
+
+in JavaScript -ES6
