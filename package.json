@@ -1,0 +1,19 @@
+{
+  "name":            "ES6-Drones_Project",
+  "version":         "0.0.1",
+  "description":     "Using ES6 for Drones Project",
+  "main":            "index.js",
+  "scripts":         {
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"dev":  "lite-server"
+  },
+  "author":          "Dimeji Ajasin",
+  "license":         "ISC",
+  "dependencies":    {
+	"es6-module-loader": "^0.17.11",
+	"traceur":           "0.0.108"
+  },
+  "devDependencies": {
+	"lite-server": "^2.2.0"
+  }
+}
