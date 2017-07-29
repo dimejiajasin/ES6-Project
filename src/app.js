@@ -143,9 +143,16 @@ import {FleetDataServices} from "./services/fleet-data-service.js"
 
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
-for (let car of dataService.cars)
-    console.log(car.license);
-// console.log(fleet);
-// console.log(d);
+
+console.log(dataService);
+
+
+/*
+for (let e of dataService.errors)
+    console.log(e.message);
+console.log(fleet);
+console.log(d);
+*/
+
 
 
