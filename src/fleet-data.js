@@ -28,7 +28,7 @@ export let fleet = [
         type: 'car',
         make: 'Tesla',
         model: 'Quick Transport',
-        miles: 'A15600',
+        miles: '15600',
         latLong: '40.773272 -73.968875'
     },
     {

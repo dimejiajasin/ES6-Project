@@ -2,13 +2,33 @@ import {Car} from "../classes/car.js"
 import {Drone} from "../classes/drone.js"
 import {DataError} from "./data-error.js"
 
-
-
 export class FleetDataServices {
     constructor() {
         this.cars = [];
         this.drones = [];
         this.errors = [];
+    }
+
+    getCarByLicense(license){
+        return this.cars.find(function (car) {
+            return car.license === license;
+        });
+    }
+
+    getCarsSortedByLicense() {
+        return this.cars.sort(function (car1, car2) {
+            if (car1.license < car2.license){
+                return -1
+            }
+            if (car1.license > car2.license){
+                return 1
+            }
+            else {
+                return 0
+            }
+
+
+        })
     }
 
     loadData(fleet){
@@ -17,7 +37,8 @@ export class FleetDataServices {
                 case 'car':
                     if (this.validateCarData(data)) {
                     let car = this.loadCar(data);
-                    this.cars.push(car);
+                    if (car)
+                        this.cars.push(car);
                     }
                     else {
                         let e = new DataError('Invalid car data', data);

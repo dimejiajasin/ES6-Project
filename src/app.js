@@ -144,14 +144,22 @@ import {FleetDataServices} from "./services/fleet-data-service.js"
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
 
-console.log(dataService);
+
+//to get cars sorted by license number
+// let car = dataService.getCarByLicense('AT9900');
+// console.log(car);
+
+// what if we want all the cars sorted by type
+let cars = dataService.getCarsSortedByLicense();
+for (let car of cars)
+    console.log(car.license);
 
 
+// console.log(dataService);
 /*
 for (let e of dataService.errors)
     console.log(e.message);
 console.log(fleet);
-console.log(d);
 */
 
 
