@@ -150,9 +150,22 @@ dataService.loadData(fleet);
 // console.log(car);
 
 // what if we want all the cars sorted by type
+/*
 let cars = dataService.getCarsSortedByLicense();
 for (let car of cars)
     console.log(car.license);
+*/
+
+/*
+You want the user to filter by typing out a string either by make/model etc and then using that string to filter data
+ */
+let cars = dataService.filterCarsByMake('e');
+
+for (let car of cars)
+    console.log(car.make);
+
+
+
 
 
 // console.log(dataService);
