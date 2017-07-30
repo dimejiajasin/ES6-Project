@@ -135,15 +135,22 @@ class Car extends Vehicle{
 let c = new Car();
 c.getCompanyName();
 */
-
+import $ from 'jquery'
 import {Car} from "./classes/car.js"
 import {Drone} from "./classes/drone.js"
 import {fleet} from "./fleet-data.js"
 import {FleetDataServices} from "./services/fleet-data-service.js"
+import {Button} from "./ui/button.js";
+import {Image} from "./ui/image.js";
+import {TitleBar} from "./ui/title-bar.js"
+
+
+/*
+
 
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
-
+*/
 
 //to get cars sorted by license number
 // let car = dataService.getCarByLicense('AT9900');
@@ -158,12 +165,34 @@ for (let car of cars)
 
 /*
 You want the user to filter by typing out a string either by make/model etc and then using that string to filter data
- */
+
 let cars = dataService.filterCarsByMake('e');
 
 for (let car of cars)
     console.log(car.make);
+*/
 
+/*
+Button
+
+let b = new Button('Click Me');
+b.appendToElement($('body'));
+*/
+
+/*
+creating Image with image class
+
+
+let i = new Image('img/drone.jpg');
+i.appendToElement($('body'));
+*/
+
+/*
+creating Title bar
+ */
+
+let tb = new TitleBar('Our Application');
+tb.appendToElement($('body'));
 
 
 
