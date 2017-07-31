@@ -143,11 +143,24 @@ import {FleetDataServices} from "./services/fleet-data-service.js"
 import {Button} from "./ui/button.js";
 import {Image} from "./ui/image.js";
 import {TitleBar} from "./ui/title-bar.js"
+import {DataTable} from "./ui/data-table.js"
 
 
 /*
+Data table
+*/
+let headers ="License Make Model Miles".split(" ");
+let dataService = new FleetDataServices();
+dataService.loadData(fleet);
+let dt = new DataTable(headers, dataService.cars);
+dt.appendToElement($('body'));
 
 
+
+
+
+
+/*
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
 */
@@ -189,10 +202,16 @@ i.appendToElement($('body'));
 
 /*
 creating Title bar
- */
 
-let tb = new TitleBar('Our Application');
+
+let tb = new TitleBar('Fleet App');
+tb.addLink('Home','');
+tb.addLink('Cars','');
+tb.addLink('Drones','');
+tb.addLink('Map','');
 tb.appendToElement($('body'));
+
+*/
 
 
 
