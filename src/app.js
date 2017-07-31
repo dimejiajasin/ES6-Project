@@ -144,17 +144,31 @@ import {Button} from "./ui/button.js";
 import {Image} from "./ui/image.js";
 import {TitleBar} from "./ui/title-bar.js"
 import {DataTable} from "./ui/data-table.js"
+import {GoogleMap} from "./ui/google-maps.js"
+
+/*
+Google Map UI
+ */
+
+let dataService = new FleetDataServices();
+dataService.loadData(fleet);
+
+let centerOfMap = {lat:40.783661, lng: -73.965883} ;
+
+let map = new GoogleMap(centerOfMap, dataService.cars);
+map.appendToElement($('body'));
+
 
 
 /*
 Data table
-*/
+
 let headers ="License Make Model Miles".split(" ");
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
 let dt = new DataTable(headers, dataService.cars);
 dt.appendToElement($('body'));
-
+*/
 
 
 
