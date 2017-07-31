@@ -134,21 +134,10 @@ class Car extends Vehicle{
 
 let c = new Car();
 c.getCompanyName();
-*/
-import $ from 'jquery'
-import {Car} from "./classes/car.js"
-import {Drone} from "./classes/drone.js"
-import {fleet} from "./fleet-data.js"
-import {FleetDataServices} from "./services/fleet-data-service.js"
-import {Button} from "./ui/button.js";
-import {Image} from "./ui/image.js";
-import {TitleBar} from "./ui/title-bar.js"
-import {DataTable} from "./ui/data-table.js"
-import {GoogleMap} from "./ui/google-maps.js"
 
-/*
+
 Google Map UI
- */
+
 
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
@@ -159,8 +148,6 @@ let map = new GoogleMap(centerOfMap, dataService.cars);
 map.appendToElement($('body'));
 
 
-
-/*
 Data table
 
 let headers ="License Make Model Miles".split(" ");
@@ -168,53 +155,42 @@ let dataService = new FleetDataServices();
 dataService.loadData(fleet);
 let dt = new DataTable(headers, dataService.cars);
 dt.appendToElement($('body'));
-*/
 
 
-
-
-
-/*
 let dataService = new FleetDataServices();
 dataService.loadData(fleet);
-*/
 
 //to get cars sorted by license number
 // let car = dataService.getCarByLicense('AT9900');
 // console.log(car);
-
 // what if we want all the cars sorted by type
-/*
+
 let cars = dataService.getCarsSortedByLicense();
 for (let car of cars)
     console.log(car.license);
-*/
 
-/*
+
 You want the user to filter by typing out a string either by make/model etc and then using that string to filter data
 
 let cars = dataService.filterCarsByMake('e');
 
 for (let car of cars)
     console.log(car.make);
-*/
 
-/*
+
 Button
 
 let b = new Button('Click Me');
 b.appendToElement($('body'));
-*/
 
-/*
+
 creating Image with image class
 
 
 let i = new Image('img/drone.jpg');
 i.appendToElement($('body'));
-*/
 
-/*
+
 creating Title bar
 
 
@@ -225,17 +201,38 @@ tb.addLink('Drones','');
 tb.addLink('Map','');
 tb.appendToElement($('body'));
 
-*/
-
-
-
 
 // console.log(dataService);
-/*
+
 for (let e of dataService.errors)
     console.log(e.message);
 console.log(fleet);
 */
 
 
+import $ from 'jquery'
+import {fleet} from "./fleet-data.js"
+import {FleetDataServices} from "./services/fleet-data-service.js"
+import {ApplicationBase} from "./framework/application-base.js"
+import {HomePage} from "./home-page.js"
+import {CarsPage} from "./cars-page.js"
+import {MapPage} from "./map-page.js"
+
+
+export class App extends ApplicationBase {
+    constructor(){
+        super("Fleet Manager");
+        this.dataService = new FleetDataServices();
+        this.dataService.loadData(fleet);
+
+        this.addRoute('Home', new HomePage(), true);
+        this.addRoute('Cars', new CarsPage);
+        this.addRoute('Drones', null);
+        this.addRoute('Maps', new MapPage());
+
+    }
+}
+
+export let application = new App();
+application.show($('body'));
 

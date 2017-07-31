@@ -19,7 +19,7 @@ export class TitleBar extends BaseElement {
         let links = '';
         for (let link of this.links)
             links += `<a class="mdl-navigation__link"
-                        href="${link.href}">${link.title}</a>\n`;
+                        >${link.title}</a>\n`;
         return `
             <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
                 <header class="mdl-layout__header">
